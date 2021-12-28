@@ -1046,6 +1046,10 @@ namespace IDMBG
                 unix_homeDirectory = _conf.DefaultValue_homeDirectory.Replace("[path]", firstValuePath);
             }
 
+            model.basic_givenname = model.basic_givenname.Replace(" ", "");
+            model.basic_sn = model.basic_sn.Replace(" ", "");
+            model.basic_givenname = model.basic_givenname.Substring(0, 1).ToUpper() + model.basic_givenname.Substring(1);
+            model.basic_sn = model.basic_sn.Substring(0, 1).ToUpper() + model.basic_sn.Substring(1);
             model.system_idm_user_type = getIdmUserType(system_ou_lvl1);
             model.basic_displayname = model.basic_cn;
             model.basic_dn = "uid=[uid]";
